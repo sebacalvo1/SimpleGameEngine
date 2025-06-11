@@ -3,9 +3,15 @@
 #include <iostream>
 #include <Engine.h>
 
+Engine* Engine::enginePtr = nullptr;
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
+}
+
+Engine::Engine() {
+	enginePtr = nullptr;
 }
 
 int Engine::Init() {
@@ -41,8 +47,8 @@ void Engine::Close() {
 }
 
 Engine* Engine::GetInstance() {
-	if (Engine::enginePtr == NULL) {
-		Engine::enginePtr = new Engine();
+	if (enginePtr == NULL) {
+		enginePtr = new Engine();
 	}
-	return Engine::enginePtr;
+	return enginePtr;
 }
