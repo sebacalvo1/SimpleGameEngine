@@ -145,10 +145,15 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\Entity.cpp" />
     <ClCompile Include="src\glad\glad.c" />
+    <ClCompile Include="src\Modules\Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Engine.h" />
+    <ClInclude Include="include\Entity.h" />
+    <ClInclude Include="include\Module.h" />
+    <ClInclude Include="include\Modules\Renderer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

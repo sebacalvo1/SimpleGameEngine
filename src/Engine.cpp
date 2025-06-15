@@ -20,7 +20,7 @@ int Engine::Init() {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(800, 600, "SimpleOpenGLWindow", NULL, NULL);
 	if (window == NULL)
 	{
 		std::cout << "Failed to create GLFW window" << std::endl;
@@ -51,4 +51,23 @@ Engine* Engine::GetInstance() {
 		enginePtr = new Engine();
 	}
 	return enginePtr;
+}
+
+void Engine::GameLoop() {
+	bool exitGame = false;
+	while (!exitGame) {
+
+	}
+}
+
+void Engine::DrawScene() {
+
+}
+
+void Engine::CallUpdates(float deltaTime) {
+	int size = entities.size();
+	//To change for iterator like loop
+	for (int i = 0; i < size; i++) {
+		entities.at(i).Update(deltaTime);
+	}
 }

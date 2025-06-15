@@ -10,9 +10,7 @@ int main()
 	if (res == -1) {
 		return -1;
 	}
-
-
-
+	engine->GameLoop();
 	engine->Close();
 
 	return 0;
