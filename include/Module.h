@@ -1,5 +1,6 @@
 #pragma once
 
+//Ill have to rethink this name, module is reserved word
 class Module {
 private:
 public:
