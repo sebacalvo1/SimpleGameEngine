@@ -11,7 +11,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 }
 
 Engine::Engine() {
-	enginePtr = nullptr;
+	enginePtr = this;
 }
 
 int Engine::Init() {
@@ -54,14 +54,27 @@ Engine* Engine::GetInstance() {
 }
 
 void Engine::GameLoop() {
+	double currentFrame = glfwGetTime();
+	double lastFrame = 0;
+	double deltaTime;
+
 	bool exitGame = false;
 	while (!exitGame) {
-
+		currentFrame = glfwGetTime();
+		deltaTime = currentFrame - lastFrame;
+		lastFrame = currentFrame;
+		float deltaTime = 0;
+		CallUpdates(deltaTime);
+		DrawScene();
 	}
 }
 
 void Engine::DrawScene() {
-
+	int size = renderers.size();
+	//To change for iterator like loop
+	for (int i = 0; i < size; i++) {
+		renderers.at(i).Draw();
+	}
 }
 
 void Engine::CallUpdates(float deltaTime) {
